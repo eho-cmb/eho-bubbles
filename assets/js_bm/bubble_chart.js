@@ -81,82 +81,102 @@ function bubbleChart() {
 // Beschriftungen anpassen
 //
 // -----------------------------------------------------------------*/    
+
+// Erster Button: year (Jahr)   
+ 
+var yearCenters = { // Center locations of the bubbles.
     
-// Erster Button: agecat (Alterskategorie)   
+    2021: { x: 280, y: height / 2 },
+    2022: { x: 480, y: height / 2 },
+    2023: { x: 720, y: height / 2 }
+    
+  };
+
+  var yearTitleX = { // X locations of the year titles.
+    
+    '2021': 200,
+    '2022': 480,
+    '2023': 780
+  };
+    
+
+// Zweiter Button: agecat (Alterskategorie)   
  
 var agecatCenters = { // Center locations of the bubbles.
-    1: { x: 100, y: height / 2 },
+    //1: { x: 100, y: height / 2 },
     2: { x: 280, y: height / 2 },
-    3: { x: 450, y: height / 2 },
-    4: { x: 580, y: height / 2 },
-    5: { x: 720, y: height / 2 },
-    6: { x: 830, y: height / 2 }
+    3: { x: 400, y: height / 2 },
+    4: { x: 520, y: height / 2 },
+    5: { x: 680, y: height / 2 },
+    6: { x: 810, y: height / 2 }
   };
 
   var agecatTitleX = { // X locations of the year titles.
     
-    '14 - 15 Jahre': 200,
-    '16 - 17 Jahre': 450,
-    '18 - 19 Jahre': 650,
+    '14 - 15 Jahre': 150,
+    '16 - 17 Jahre': 400,
+    '18 - 19 Jahre': 620,
     '20 - 29 Jahre': 780,
     'Älter als 30 Jahre': 920
   };
     
     
-// Zweiter Button: Geschlecht
+// Dritter Button: Geschlecht
     
   var sexCenters = { // Center locations of the bubbles. 
     'Maennlich': { x: 250, y: height / 2  },
-    'Weiblich': { x: 500, y: height / 2  },
-    'Non-Binaer': { x: 750, y: height / 2  }
+    'Weiblich': { x: 450, y: height / 2  },
+    'Non-Binaer': { x: 600, y: height / 2  },
+    'Moechte nicht antworten': { x: 750, y: height / 2  }
     
   };
 
   var sexTitleX = {  // X locations of the year titles.
     'Männer': 170,
-    'Frauen': 530,
-    'Nichtbinär': 800,
+    'Frauen': 480,
+    'Nichtbinär': 720,
+    'Keine Antwort': 900
     
   };
 
 
-// Dritter Button: Bildschirmzeit
+// Vierter Button: Bildschirmzeit
     
   var screentimeCenters = { // Center locations of the bubbles. 
     'weniger als 1h': { x: 180, y: height / 2 },
     '1h-2h': { x: 300, y: height / 2 },
     '2h-3h': { x: 420, y: height / 2 },
     '3h-4h': { x: 550, y: height / 2 },
-    '4h-5h': { x: 700, y: height / 2 },
-    'Mehr als 5h': { x: 850, y: height / 2 } 
+    '4h-5h': { x: 670, y: height / 2 },
+    'Mehr als 5h': { x: 800, y: height / 2 } 
   };
 
   var screentimeTitleX = {  // X locations of the year titles.
-    'bis 1h': 80,
-    '1h bis 2h': 220,
-    '2h bis 3h': 350,
-    '3h bis 4h': 550,
-    '4h bis 5h': 750,
+    'bis 1h': 40,
+    '1h bis 2h': 160,
+    '2h bis 3h': 330,
+    '3h bis 4h': 540,
+    '4h bis 5h': 730,
     'mehr als 5h': 900
   };
     
-// Vierter Button: Sorgenbarometer
+// Fünfter Button: Sorgenbarometer
     
     
   var concernCenters = { // Center locations of the bubbles. 
     '1': { x: 220, y: height / 2  },
     '2': { x: 420, y: height / 2  },
     '3': { x: 600, y: height / 2  },
-    '4': { x: 800, y: height / 2  }
+    '4': { x: 770, y: height / 2  }
   
   };
 
   var concernTitleX = {  // X locations of the year titles.
     '"Ich mache mir Sorgen um meine Daten."': 500,
-    'Stimmt ganz': 150,
+    'Stimmt ganz': 100,
     'Stimmt eher': 350, 
-    'Stimmt eher nicht': 600, 
-    'Stimmt nicht': 850
+    'Stimmt eher nicht': 650, 
+    'Stimmt nicht': 900
   };
     
   var concernTitleY = {  // Y locations of the year titles.
@@ -167,7 +187,32 @@ var agecatCenters = { // Center locations of the bubbles.
     'Stimmt nicht': 70
   };  
     
+// Sechster Button: Geldentschädigung
     
+  var moneyCenters = { // Center locations of the bubbles. 
+    '0': { x: 220, y: height / 2  },
+    '1': { x: 420, y: height / 2  },
+    '2': { x: 600, y: height / 2  },
+    '3': { x: 770, y: height / 2  }
+  
+  };
+
+  var moneyTitleX = {  // X locations of the year titles.
+    '"Geldentschädigung für eine Woche Geräteverzicht"': 500,
+    'Ohne Entschädigung': 100,
+    '5CHF bis 50CHF': 350, 
+    '50CHF bis 100CHF': 600, 
+    'Mehr als 100CHF': 850
+  };
+    
+  var moneyTitleY = {  // Y locations of the year titles.
+    '"Geldentschädigung für eine Woche Geräteverzicht"': 35, 
+    'Ohne Entschädigung': 70,
+    '5CHF bis 50CHF': 70, 
+    '50CHF bis 100CHF': 70, 
+    'Mehr als 100CHF': 70
+  };  
+       
     
 //* ------------------------------------------------------------------
 //
@@ -186,7 +231,7 @@ var agecatCenters = { // Center locations of the bubbles.
 /* Charge function that is called for each node. Charge is proportional to the diameter of the circle (which is stored in the radius attribute of the circle's associated data. This is done to allow for accurate collision detection with nodes of different sizes. Charge is negative because we want nodes to repel. Dividing by 8 scales down the charge to be appropriate for the visualization dimensions. */
     
   function charge(d) {
-    return -Math.pow(d.radius, 2.0) / 6;
+    return -Math.pow(d.radius, 2.05) / 6;
   }
 
 /* Here we create a force layout and configure it to use the charge function from above. This also sets some contants to specify how the force layout should behave. More configuration is done below. */
@@ -200,7 +245,7 @@ var agecatCenters = { // Center locations of the bubbles.
 
   // Sizes bubbles based on their area instead of raw radius
   var radiusScale = d3.scale.pow()
-    .exponent(0.5)
+    .exponent(0.55)
     .range([5, 100]);
 
 /* This data manipulation function takes the raw data from the CSV file and converts it into an array of node objects. Each node will store data and visualization values to visualize a bubble. rawData is expected to be an array of data objects, read in from one of d3's loading functions like d3.csv. This function returns the new node array, with a node in that array for each element in the rawData input. */
@@ -224,6 +269,7 @@ var agecatCenters = { // Center locations of the bubbles.
       return {
           
         id: d.id,
+        year: d.jahr,
         radius: radiusScale(+d.bszkat2), // Berechnung Radius für bubbles
         size: d.bszkat2,
         screentime: d.bsz,
@@ -235,7 +281,10 @@ var agecatCenters = { // Center locations of the bubbles.
           
         concern: d.sorgenkat,  
         concerntext: d.sorgen,
-          
+        
+        money: d.geldeinewochekat,
+        moneytext: d.geldeinewoche,
+        
         x: Math.random() * 900,
         y: Math.random() * 800
       };
@@ -327,10 +376,12 @@ var agecatCenters = { // Center locations of the bubbles.
 // -----------------------------------------------------------------*/      
     
   function groupBubbles() {
+    hideYear();
     hideAgecat();
     hideSex();
     hideScreentime();
-    hideConcern();  
+    hideConcern(); 
+    hideMoney();
     
     force.on('tick', function (e) {
       bubbles.each(moveToCenter(e.alpha))
@@ -356,11 +407,60 @@ Die Positionierung basiert auf dem alpha Parameter des force layouts und wird kl
 //
 // WISSENSCHAFTSWOCHE E
 //
-// Für jede Ansicht muss nun die richtige show / hide Anonrdnung programmiert werden. 
+// Für jede Ansicht muss nun die richtige show / hide Anordnung programmiert werden. 
 // Für neue Ansicht: Block kopieren und anpassen
 //
 // -----------------------------------------------------------------*/      
 
+//* ------------------------------------------------------------------
+//
+// JAHR / YEAR
+//
+// -----------------------------------------------------------------*/
+ 
+ function splitBubblesintoYear() {
+    showYear();
+    hideAgecat();
+    hideSex();
+    hideConcern();
+    hideScreentime();
+    hideMoney();
+
+    force.on('tick', function (e) {
+      bubbles.each(moveToYear(e.alpha))
+        .attr('cx', function (d) { return d.x; })
+        .attr('cy', function (d) { return d.y; });
+    });
+
+    force.start();
+  }
+    
+function moveToYear(alpha) {
+    return function (d) {
+      var target = yearCenters[d.year];
+      d.x = d.x + (target.x - d.x) * damper * alpha * 1.1;
+      d.y = d.y + (target.y - d.y) * damper * alpha * 1.1;
+    };
+  }
+
+  function hideYear() {
+    svg.selectAll('.year').remove();
+  }
+
+  function showYear() {
+
+    var yearData = d3.keys(yearTitleX);
+    var year = svg.selectAll('.year')
+      .data(yearData);
+
+    year.enter().append('text')
+      .attr('class', 'year')
+      .attr('x', function (d) { return yearTitleX[d]; })
+      .attr('y', 65)
+      .attr('text-anchor', 'middle')
+      .text(function (d) { return d; });
+    }    
+    
 //* ------------------------------------------------------------------
 //
 // ALTER / AGE
@@ -369,9 +469,11 @@ Die Positionierung basiert auf dem alpha Parameter des force layouts und wird kl
  
  function splitBubblesintoAgecat() {
     showAgecat();
+    hideYear();
     hideSex();
     hideConcern();
     hideScreentime();
+    hideMoney();
 
     force.on('tick', function (e) {
       bubbles.each(moveToAgecat(e.alpha))
@@ -416,9 +518,11 @@ function moveToAgecat(alpha) {
     
   function splitBubblesintoSex() {
     showSex();
+    hideYear();
     hideAgecat();
     hideConcern();
     hideScreentime();
+    hideMoney();
 
     force.on('tick', function (e) {
       bubbles.each(moveToSex(e.alpha))
@@ -463,9 +567,11 @@ function moveToAgecat(alpha) {
     
   function splitBubblesintoScreentime() {
     showScreentime();
+    hideYear();
     hideSex();
     hideAgecat();
     hideConcern();
+    hideMoney();
 
     force.on('tick', function (e) {
       bubbles.each(moveToScreentime(e.alpha))
@@ -511,9 +617,11 @@ function moveToAgecat(alpha) {
     
   function splitBubblesintoConcern() {
     showConcern();
+    hideYear();
     hideSex();
     hideAgecat();
     hideScreentime();
+    hideMoney();
 
     force.on('tick', function (e) {
       bubbles.each(moveToConcern(e.alpha))
@@ -550,6 +658,56 @@ function moveToAgecat(alpha) {
       .text(function (d) { return d; });
     }
 
+//* ------------------------------------------------------------------
+//
+// Geldentschädigung
+//
+// -----------------------------------------------------------------*/
+    
+  function splitBubblesintoMoney() {
+    showMoney();
+    hideYear();
+    hideSex();
+    hideAgecat();
+    hideScreentime();
+    hideConcern();
+
+    force.on('tick', function (e) {
+      bubbles.each(moveToMoney(e.alpha))
+        .attr('cx', function (d) { return d.x; })
+        .attr('cy', function (d) { return d.y; });
+    });
+
+    force.start();
+  }
+
+  function moveToMoney(alpha) {
+    return function (d) {
+      var target = moneyCenters[d.money];
+      d.x = d.x + (target.x - d.x) * damper * alpha * 1.1;
+      d.y = d.y + (target.y - d.y) * damper * alpha * 1.1;
+    };
+  }
+
+  function hideMoney() {
+    svg.selectAll('.money').remove();
+  }
+
+  function showMoney() {
+
+    var moneyData = d3.keys(moneyTitleX);
+    var money = svg.selectAll('.money')
+      .data(moneyData);
+
+    money.enter().append('text')
+      .attr('class', 'money')
+      .attr('x', function (d) { return moneyTitleX[d]; })
+      .attr('y', function (d) { return moneyTitleY[d]; })
+      .attr('text-anchor', 'middle')
+      .text(function (d) { return d; });
+    }
+
+    
     
 //* ------------------------------------------------------------------
 //
@@ -568,7 +726,9 @@ function moveToAgecat(alpha) {
   /* Externally accessible function (this is attached to the returned chart function). Allows the visualization to toggle between "single group" and "split by ..." modes. */
 
   chart.toggleDisplay = function (displayName) {
-    if (displayName === 'agecat') {
+    if (displayName === 'year') {
+      splitBubblesintoYear();
+    } else if (displayName === 'agecat') {
       splitBubblesintoAgecat();
     } else if (displayName === 'sex') {
       splitBubblesintoSex();
@@ -576,6 +736,8 @@ function moveToAgecat(alpha) {
       splitBubblesintoConcern();
     } else if (displayName === 'screentime') {
       splitBubblesintoScreentime();
+    } else if (displayName === 'money') {
+      splitBubblesintoMoney();
     } else {
       groupBubbles();
     }
@@ -606,7 +768,7 @@ function moveToAgecat(alpha) {
 
   var fillColor = d3.scale.ordinal()
     .domain(['1','2','3', '4','5','6'])
-    .range(['#F7CAD0', '#ADE8F4', '#48CAE4', '#0096C7','#023E8A','#03045E']);
+    .range(['#F7CAD0', '#ff006e', '#48CAE4', '#0096C7','#023E8A','#03045E']);
 
   /* Tooltip-Funktion*/
   function showDetail(d) {
@@ -624,6 +786,12 @@ function moveToAgecat(alpha) {
                   '</span><br/>' +
                   '<span class="name">"Ich mache mir Sorgen um meine Daten": </span><span class="value">' +
                   d.concerntext +
+                  '</span><br/>' +
+                  '<span class="name">"Geldentschädigung für eine Woche Geräteverzicht": </span><span class="value">' +
+                  d.moneytext +
+                  '</span><br/>' +
+                  '<span class="name">"Umfragejahr": </span><span class="value">' +
+                  d.year +
                   '</span>';
     tooltip2.showtooltip2(content, d3.event);
   }
@@ -635,7 +803,7 @@ function moveToAgecat(alpha) {
 //
 // WISSENSCHAFTSWOCHE I
 //
-// Farben anpassen: hier Variable definiere, weiter oben (ca. Zeile 500) die Farben konkret anpassen. 
+// Farben anpassen: hier Variable definieren, weiter oben (ca. Zeile 500) die Farben konkret anpassen. 
 //
 // -----------------------------------------------------------------*/    
       
@@ -646,6 +814,8 @@ function moveToAgecat(alpha) {
   }
 
 //* ------------------------------------------------------------------
+//
+// WISSENSCHAFTSWOCHE J
 //
 // The End
 //

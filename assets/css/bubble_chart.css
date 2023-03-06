@@ -1,3 +1,15 @@
+/*-------------------------------------*/
+
+/*--- Font size der Texte ----*/
+
+.year, .age {
+  font-size: 18px;
+  fill: #000000;
+  cursor: default;
+}
+
+/*-------------------------------------*/
+
 a, a:visited, a:active {
   color: #CD003C;
 }
@@ -78,7 +90,7 @@ height: 70px;
   margin-bottom: 10px;
 }
 
-.year, .line, .duration, .weekday{
+.line, .duration, .weekday{
   font-size: 18px;
   fill: #000000;
   cursor: default;
